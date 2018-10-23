@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import * as api from './Api';
 
 class App extends Component {
+  state = {
+    input: ''
+  };
+
   render() {
     return (
       <div className="App">
@@ -19,10 +24,16 @@ class App extends Component {
     );
   }
 
-  handleChange = event => {};
+  handleChange = event => {
+    this.setState({
+      input: event.target.value
+    });
+  };
 
   handleSubmit = event => {
+    // console.log('hello');
     event.preventDefault();
+    api.sendURL();
   };
 }
 
