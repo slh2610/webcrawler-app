@@ -1,6 +1,9 @@
 const http = require('http');
+const { testFunction } = require('./controllers');
 
-const server = http.createServer((request, response) => {});
+const server = http.createServer((req, res) => {
+  testFunction(req, res);
+});
 
 server.listen(9090, err => {
   console.log('starting server');
