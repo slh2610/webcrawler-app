@@ -1,3 +1,5 @@
+const http = require('http');
+
 exports.testFunction = (request, response) => {
   const { url } = request;
 
@@ -15,4 +17,10 @@ exports.testFunction = (request, response) => {
     response.write(JSON.stringify({ message: 'Link is broken' }));
     response.end();
   }
+};
+
+exports.getResponse = req => {
+  http.get('http://broken-links-api.herokuapp.com/onion.html', res => {
+    console.log(res.statusCode);
+  });
 };
